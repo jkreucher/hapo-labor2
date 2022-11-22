@@ -92,7 +92,8 @@ Ticker tMainUpdate;
 
 
 // Input / Output
-BusOut busLeds(PIN_LED1, PIN_LED2, PIN_LED3, PIN_LED4);
+//BusOut busLeds(PIN_LED1, PIN_LED2, PIN_LED3, PIN_LED4);
+BusOut busLeds(PIN_LED4, PIN_LED3, PIN_LED2, PIN_LED1);
 DigitalIn pinSW1(PIN_SW1);
 DigitalIn pinSW2(PIN_SW2);
 DigitalIn pinSW3(PIN_SW3);
@@ -237,7 +238,7 @@ void vDisplayStateMachine() {
             break;
         
         case StateCount:
-            if(bDisplayCounter > 4) {
+            if(bDisplayCounter >= 4) {
                 bDisplayCounter=0;
                 // count up
                 wDisplayTime++;
